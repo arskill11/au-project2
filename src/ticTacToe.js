@@ -23,6 +23,7 @@ function render () {
     clickToStart.setAttribute('style', 'font-size: 30px; color:black; position: absolute; top:65%; left: 35%; right: 35%; text-align:center;');
     container.appendChild(clickToStart);
     
+    
     let playerOne;
     let playerTwo;
     let currentPlayer;
@@ -30,6 +31,9 @@ function render () {
     let winnerClaimed;
     
     function start () {
+      document.querySelectorAll('.green').forEach(green => {
+        green.classList.remove('green');
+      })
       for (let i = 0; i < gameBoard.board.length; i++) {
         gameBoard.board[i] = '';
       }
@@ -41,6 +45,7 @@ function render () {
       playerOne = Player (inputNameOne.value || 'Игрок 1', 'X');
       playerTwo = Player (inputNameTwo.value || 'Игрок 2', 'O');
     
+      console.log(playerOne.playerName);
       playerOneName.textContent = playerOne.playerName;
       playerTwoName.textContent = playerTwo.playerName;
       playerOneName.classList.add('green');
@@ -193,5 +198,9 @@ function render () {
   function handleStart (e) {
     game.start();
   }
+
+  while(gameBoard.gameField.hasChildNodes()){
+    gameBoard.gameField.removeChild(gameBoard.gameField.lastChild);
+  }    
 }
 export { render as renderAbout };

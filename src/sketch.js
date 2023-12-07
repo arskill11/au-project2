@@ -95,7 +95,8 @@ function render () {
       allGridSquares[i].addEventListener('mouseover', setBlackColor);
     }
   }
-    
+
+  clearGrid();
   generateGrid();
   mouseOverEvent();
     

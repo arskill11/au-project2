@@ -130,8 +130,8 @@ function render () {
     submitBtnDialog.classList.add('submitBtnDialog');
     editBtnDialog.classList.add('editBtnDialog');
     
-    submitBtnDialog.textContent = 'Submit';
-    editBtnDialog.textContent = 'Submit';
+    submitBtnDialog.textContent = 'Подтвердить';
+    editBtnDialog.textContent = 'Подтвердить';
     
     function showDialog () {
       dialog.showModal();
@@ -307,6 +307,7 @@ function render () {
       arr[indexArr].array[indexTask].description = newDescription;
       arr[indexArr].array[indexTask].dueto = newDueto;
       arr[indexArr].array[indexTask].priority = newPriority;
+      setLocalStorageArray(arr);
     }
 
     function createStartTasks () {
