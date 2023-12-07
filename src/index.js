@@ -150,5 +150,4 @@ document.addEventListener('click', (e) => {
       break;
   }
 })
-
 export { mainContent };
