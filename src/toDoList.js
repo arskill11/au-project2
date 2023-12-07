@@ -5,10 +5,9 @@ function render () {
     const taskList = document.querySelector('.taskList');
     const projContainer = document.querySelector('.projContainer');
     const addProjectBtn = document.querySelector('.addProjectBtn');
-    const parseArray = getLocalStorageArray();
-    
+
     function demonstrateProjects () {
-      if (parseArray.length == 0) return;
+      const parseArray = getLocalStorageArray();
       for (let i = 0; i < parseArray.length; i++) {
         const projectContainerDiv = document.createElement('li');
         const projectDiv = document.createElement('p');
@@ -308,15 +307,23 @@ function render () {
       arr[indexArr].array[indexTask].description = newDescription;
       arr[indexArr].array[indexTask].dueto = newDueto;
       arr[indexArr].array[indexTask].priority = newPriority;
-
-      setLocalStorageArray(arr);
     }
- 
+
+    function createStartTasks () {
+      if (!localStorage.getItem('projectArray') || !JSON.parse(localStorage.getItem('projectArray')).length){
+        localStorage.setItem('projectArray', JSON.stringify(projectArray));
+        createProject('Академия');
+        addTasks(0, 'Проект по WD', 'Сделать проект на тему студенчества', '08.12.2023', 'high');
+      }
+    }
+    createStartTasks();
+
     return {
       createProject,
       addTasks,
       projectArray,
       editTask,
+      createStartTasks
     }
   })();
 

@@ -72,7 +72,7 @@ function render () {
       btnCol = document.createElement('td');
     
       delBtn = document.createElement('button');
-      delBtn.textContent = 'Delete';
+      delBtn.textContent = 'Удалить';
       delBtn.setAttribute('data-del-ind', i);
       delBtn.addEventListener('click', deleteBook);
       btnCol.appendChild(delBtn);

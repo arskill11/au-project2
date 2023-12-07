@@ -30,6 +30,14 @@ function render () {
     let winnerClaimed;
     
     function start () {
+      for (let i = 0; i < gameBoard.board.length; i++) {
+        gameBoard.board[i] = '';
+      }
+    
+      while(gameBoard.gameField.hasChildNodes()){
+        gameBoard.gameField.removeChild(gameBoard.gameField.lastChild);
+      }    
+    
       playerOne = Player (inputNameOne.value || 'Игрок 1', 'X');
       playerTwo = Player (inputNameTwo.value || 'Игрок 2', 'O');
     
@@ -51,21 +59,7 @@ function render () {
     
       gameBoard.render();
     }
-    
-    function restart() {
-      for (let i = 0; i < gameBoard.board.length; i++) {
-        gameBoard.board[i] = '';
-      }
-    
-      while(gameBoard.gameField.hasChildNodes()){
-        gameBoard.gameField.removeChild(gameBoard.gameField.lastChild);
-      }    
-    
-      playerOneName.classList.remove('green');
-      playerTwoName.classList.remove('green');
-      start();
-    }
-    
+        
     const winnigPattern = [
       [0, 1, 2],
       [3, 4, 5],
@@ -163,7 +157,6 @@ function render () {
       freeCells,
       winnerClaimed,
       handleCLick,
-      restart,
     }
   })();
     
@@ -199,15 +192,6 @@ function render () {
   btnStart.addEventListener('click', handleStart);
   function handleStart (e) {
     game.start();
-    e.target.removeEventListener('click', handleStart);
   }
-    
-  const btnRestart = document.querySelector('.restart')
-    .addEventListener('click', () => {
-      game.restart();
-    })    
-
-    game.restart();
-
 }
 export { render as renderAbout };
