@@ -635,7 +635,7 @@ input.invalid {
     grid-template-columns: 1.7fr 6fr;
     grid-template-rows: 1fr 7fr;
     background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(136, 136, 136));
-    overflow: visible;
+    /*overflow: visible;*/
     animation: appear 3s;
 }
 
