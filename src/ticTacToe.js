@@ -20,7 +20,7 @@ function render () {
       })
         
     clickToStart.textContent = "НАЖМИТЕ \"СТАРТ\", ЧТОБЫ НАЧАТЬ";
-    clickToStart.setAttribute('style', 'font-size: 30px; color:black; position: absolute; top:45%; left: 35%; right: 35%; text-align:center;');
+    clickToStart.setAttribute('style', 'font-size: 30px; color:black; position: absolute; top:50%; left: 35%; right: 35%; text-align:center;');
     container.appendChild(clickToStart);
     
     let playerOne;
