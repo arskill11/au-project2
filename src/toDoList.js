@@ -1,14 +1,13 @@
 function render () {
 
   function createLayout () {
-    const mainContent = document.querySelector('.mainContentTo');
     const addTaskBtn = document.querySelector('.addTaskBtn');
     const taskList = document.querySelector('.taskList');
     const projContainer = document.querySelector('.projContainer');
     const addProjectBtn = document.querySelector('.addProjectBtn');
-        
+    const parseArray = getLocalStorageArray();
+    
     function demonstrateProjects () {
-      const parseArray = getLocalStorageArray();
       if (parseArray.length == 0) return;
       for (let i = 0; i < parseArray.length; i++) {
         const projectContainerDiv = document.createElement('li');
